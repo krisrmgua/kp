@@ -1,0 +1,253 @@
+set nocompatible
+filetype off
+set encoding=UTF-8
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" Required:
+set runtimepath+=/root/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('/root/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Converted from Plug
+NeoBundle 'preservim/nerdtree'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'tpope/vim-sensible'
+NeoBundle 'ryanoasis/vim-devicons'
+NeoBundle 'gilgigilgil/anderson.vim'
+NeoBundle 'ayu-theme/ayu-vim'
+NeoBundle 'nightsense/carbonized'
+NeoBundle 'challenger-deep-theme/vim', { 'name': 'challenger-deep' }
+NeoBundle 'tyrannicaltoucan/vim-deep-space'
+NeoBundle 'chase/focuspoint-vim'
+NeoBundle 'whatyouhide/vim-gotham'
+NeoBundle 'git@gitlab.com:yorickpeterse/happy_hacking.vim.git'
+NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'cseelus/vim-colors-lucid'
+NeoBundle 'mkarmona/materialbox'
+NeoBundle 'christophermca/meta5'
+NeoBundle 'dikiaap/minimalist'
+NeoBundle 'TheNiteCoder/mountaineer.vim'
+NeoBundle 'rakr/vim-one'
+NeoBundle 'joshdick/onedark.vim'
+NeoBundle 'fcpg/vim-orbital'
+NeoBundle 'sainnhe/sonokai'
+NeoBundle 'phanviet/vim-monokai-pro'
+NeoBundle 'jacoborus/tender.vim'
+NeoBundle 'marcopaganini/termschool-vim-theme'
+NeoBundle 'hashivim/vim-terraform'
+NeoBundle 'vim-airline/vim-airline'
+
+" Converted from Plugin
+NeoBundle 'VundleVim/Vundle.vim'
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'arcticicestudio/nord-vim'
+NeoBundle 'Badacadabra/vim-archery'
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+"colorscheme iceberg  " Your favorite color scheme's name
+"colorscheme anderson  " Your favorite color scheme's name
+""""""set termguicolors     " enable true colors support   ENABLE FOR RASPBERRYPI
+let ayucolor="dark"   " for dark version of theme
+set background=dark   " dark or light
+"colorscheme carbonized-dark
+"colorscheme challenger_deep
+"colorscheme meta5
+"colorscheme lucid
+"colorscheme materialbox
+
+"colorscheme ayu
+"colorscheme deep-space
+"colorscheme focuspoint
+"colorscheme gotham
+"colorscheme happy_hacking
+"colorscheme PaperColor
+"colorscheme hybrid
+"colorscheme orbital
+"colorscheme sonokai
+"colorscheme monokai_pro
+
+"let g:jellybeans_use_term_italics = 1  " turn on for raspberry pi"
+let g:jellybeans_use_lowcolor_black = 1
+colorscheme jellybeans " I Like more info https://github.com/nanotech/jellybeans.vim
+
+
+
+
+"set t_Co=256
+"let g:airline_theme='minimalist'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
+"colorscheme minimalist
+
+"colorscheme mountaineer-grey
+"
+"let g:airline_theme='one'
+"colorscheme one
+
+"let g:airline_theme='onedark'
+"colorscheme onedark
+
+"let g:airline_theme = 'tender'
+"let g:lightline = { 'colorscheme': 'tender' }
+"colorscheme tender
+
+"colorscheme termschool
+
+
+"function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+" exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+" exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+"endfunction
+"call NERDTreeHighlightFile('tf', 'green', 'none', 'green', '#151515')
+let g:webdevicons_enable = 1
+"set guifont=DroidSansMono\ Nerd\ Font\ 11
+"set guifont=DroidSansMNerdFont-Regular\ 11
+set guifont=JetBrainsMonoNerdFont-Medium\ 11 
+let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1  " makes open folders red?"
+let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1 " files red?"
+
+let g:WebDevIconsOS = 'Darwin'
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+let g:webdevicons_enable_vimfiler = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_nerdtree = 1
+
+filetype plugin indent on
+set nu     " Enable line numbers
+set laststatus=2
+syntax on  " Enable syntax highlighting
+set tabstop=4 " How many columns of whitespace a "level of indentation" is worth
+set shiftwidth=4 " Use spaces when tabbing
+set expandtab
+set incsearch  " Enable incremental search
+set hlsearch   " Enable highlight search
+set termwinsize=12x0   " Set terminal size
+set splitbelow         " Always split below
+set mouse=a            " Enable mouse drag on window splits
+let g:AutoPairsShortcutToggle = '<C-P>' "CTRL + P to enable disable paris like brackets quotes ect
+let NERDTreeShowBookmarks = 0   " Show the bookmarks table
+let NERDTreeShowHidden = 1      " Show hidden files
+let NERDTreeShowLineNumbers = 0 " Hide line numbers
+let NERDTreeMinimalMenu = 0     " Use the minimal menu (m)
+let NERDTreeWinPos = "left"     " Panel opens on the left side
+let NERDTreeWinSize = 35        " Set panel width to 31 columns
+nmap <F2> :NERDTreeToggle<CR>   " Run NerdTree when you press F2
+"let g:indentLine_setColors = 0
+"let g:NERDTreeFileExtensionHighlightFullName = 1
+"let g:NERDTreeExactMatchHighlightFullName = 1
+"let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+"let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
+highlight NERDTreeDir guifg=#E2E3E7
+highlight NERDTreeDirSlash guifg=#E2E3E7
+highlight NERDTreeOpenable guifg=#E2E3E7
+highlight NERDTreeClosable guifg=#E2E3E7
+highlight NERDTreeUp guifg=#E2E3E7
+highlight NERDTreeExecFile guifg=#E2E3E7
+"highlight! link NERDTreeFlags NERDTreeDir " fix folder colors
+
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
+
+let s:tf_purple = '9D67D2'
+let s:tf_light_purple = 'cfb5e9'
+let s:my_grey = '9E9E9E'
+let s:my_light_brown = 'ad5e0d'
+let s:my_blue = '80C0DF'
+let s:off_white = 'E2E3E7'
+
+let g:DevIconsDefaultFolderOpenSymbol=''
+let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol=''
+
+" Custom icons for file extensions
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = 'ﯤ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = 'ﬥ'
+
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.test.ts'] = 'ﭧ'
+
+" Custom icons for specific filenames
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.env'] = 'ﭩ'
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.editorconfig'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['src'] = ''
+
+set backspace=indent,eol,start  " more powerful backspacing
+source $VIMRUNTIME/defaults.vim
+let skip_defaults_vim = 1
+if has('mouse')
+  set mouse=r
+endif
+"autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+let g:NERDTreeQuitOnOpen = 1
+let g:terraform_fmt_on_save=1
+let g:terraform_align=1
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tf'] = '󱁢'
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['tf'] = s:tf_purple " sets the color of tf files to purple
+
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['hcl'] = '󰷆'
+let g:NERDTreeExtensionHighlightColor['hcl'] = s:tf_light_purple " sets the color of tf files to purple
+
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tfvars'] = '󱁢'
+let g:NERDTreeExtensionHighlightColor['tfvars'] = s:tf_light_purple " sets the color of tf files to purple
+
+let g:NERDTreeExtensionHighlightColor['yaml'] = s:my_light_brown " sets the color of tf files to purple
+let g:NERDTreeExtensionHighlightColor['yml'] = s:my_light_brown " sets the color of tf files to purple
+
+let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:my_blue " sets the color of tf files to purple
+let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:my_blue " sets the color for files ending with _spec.rb
+
+" Define a custom highlight group for .terraform folder icons
+highlight TerraformIcon guifg=#9D67D2
+" Use autocmd to match .terraform folder names in NerdTree
+autocmd FileType nerdtree syntax match TerraformIcon "󱁢"
+" Link the custom highlight group to the matched syntax
+autocmd FileType nerdtree highlight link TerraformIcon NERDTreeDir
+
+let g:WebDevIconsDefaultFolderSymbolColor = s:my_blue " sets the color for folders that did not match any rule
+let g:WebDevIconsDefaultFileSymbolColor = s:off_white " sets the color for files that did not match any rule
