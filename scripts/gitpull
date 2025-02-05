@@ -12,18 +12,20 @@ cd ~/git-repos || { echo "Directory ~/git-repos not found"; exit 1; }
 for dir in */; do
     # Check if it's a directory
     if [ -d "$dir" ]; then
-        # Change into the directory
-        cd "$dir" || continue
+        (
+            # Change into the directory
+            cd "$dir" || exit
 
-        # Check if it's a git repository
-        if [ -d ".git" ]; then
-            echo -e "${BOLD_YELLOW}Updating repository in $dir${RESET}"
-            git pull
-        else
-            echo -e "${BOLD_RED}$dir is not a Git repository${RESET}"
-        fi
-
-        # Change back to the parent directory
-        cd ..
+            # Check if it's a git repository
+            if [ -d ".git" ]; then
+                echo -e "${BOLD_YELLOW}Updating repository in $dir${RESET}"
+                git pull
+            else
+                echo -e "${BOLD_RED}$dir is not a Git repository${RESET}"
+            fi
+        ) &
     fi
 done
+
+# Wait for all background processes to finish
+wait
