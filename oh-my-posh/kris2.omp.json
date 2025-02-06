@@ -6,7 +6,7 @@
       "newline": true,
       "segments": [
         {
-          "background": "#8C8C8C",
+          "background": "p:f-lightgrey",
           "foreground": "transparent",
           "style": "diamond",
           "template": " {{.Icon}} ",
@@ -172,7 +172,7 @@
           "type": "root"
         },
         {
-          "foreground": "p:f-white",
+          "foreground": "p:f-grey",
           "properties": {
             "folder_icon": "\uf07b ",
             "folder_separator_icon": " \uf061 ",
@@ -205,7 +205,7 @@
   "console_title_template": "{{ .Folder }}",
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "#FEF5ED",
+    "foreground": "<p:f-white>",
     "template": "\ue285 "
   },
   "palette": {
@@ -227,6 +227,7 @@
     "f-grey": "#565656",
     "f-blackgrey": "#2E2E2E",
     "f-blackgrey2": "#494949",
+    "f-lightgrey": "#8C8C8C",
     "f-charcoal": "#303030",
     "f-azure": "#33B2E7",
     "f-aws": "#FF920B",
