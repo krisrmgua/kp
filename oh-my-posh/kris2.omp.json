@@ -172,7 +172,7 @@
           "type": "root"
         },
         {
-          "foreground": "p:f-grey",
+          "foreground": "p:f-lightgrey",
           "properties": {
             "folder_icon": "\uf07b ",
             "folder_separator_icon": " \uf061 ",
@@ -227,6 +227,7 @@
     "f-grey": "#565656",
     "f-blackgrey": "#2E2E2E",
     "f-blackgrey2": "#494949",
+    "f-blackgrey3": "#333333",
     "f-lightgrey": "#8C8C8C",
     "f-charcoal": "#303030",
     "f-azure": "#33B2E7",
