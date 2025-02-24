@@ -43,7 +43,7 @@
           },
           "foreground": "p:f-white",
           "background": "p:f-terraform",
-          "template": " \udb84\udc62 Workspace: {{ .WorkspaceName }}{{ if .Version }} {{ .Version }}{{ end }} "
+          "template": " \udb84\udc62 Workspace: {{ .WorkspaceName }}{{ .Version }} "
         },
         {
           "background": "p:f-blackgrey",
