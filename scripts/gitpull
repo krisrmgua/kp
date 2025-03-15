@@ -19,7 +19,9 @@ for dir in */; do
             # Check if it's a git repository
             if [ -d ".git" ]; then
                 echo -e "${BOLD_YELLOW}Updating repository in $dir${RESET}"
-                git pull
+                if ! git pull; then
+                    echo -e "${BOLD_RED}Failed to update repository in $dir${RESET}"
+                fi
             else
                 echo -e "${BOLD_RED}$dir is not a Git repository${RESET}"
             fi
