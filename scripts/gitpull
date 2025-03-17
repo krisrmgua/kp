@@ -5,29 +5,50 @@ BOLD_YELLOW='\033[1;33m'
 BOLD_RED='\033[1;31m'
 RESET='\033[0m'
 
+# Directory containing git repositories
+REPOS_DIR=~/git-repos
+
 # Change to the directory containing git repositories
-cd ~/git-repos || { echo "Directory ~/git-repos not found"; exit 1; }
+cd "$REPOS_DIR" || { echo "Directory $REPOS_DIR not found"; exit 1; }
+
+# Temporary file to store error outputs
+ERRORS_FILE=$(mktemp)
+
+# Function to handle repository update
+update_repo() {
+    local dir="$1"
+    (
+        # Change into the directory
+        cd "$dir" || exit
+
+        # Check if it's a git repository
+        if [ -d ".git" ]; then
+            echo -e "${BOLD_YELLOW}Updating repository in $dir${RESET}"
+            if ! git pull; then
+                echo -e "${BOLD_RED}Failed to update repository in $dir${RESET}" >> "$ERRORS_FILE"
+            fi
+        else
+            echo -e "${BOLD_RED}$dir is not a Git repository${RESET}" >> "$ERRORS_FILE"
+        fi
+    ) 2>> "$ERRORS_FILE"
+}
 
 # Loop over each item in the directory
 for dir in */; do
     # Check if it's a directory
     if [ -d "$dir" ]; then
-        (
-            # Change into the directory
-            cd "$dir" || exit
-
-            # Check if it's a git repository
-            if [ -d ".git" ]; then
-                echo -e "${BOLD_YELLOW}Updating repository in $dir${RESET}"
-                if ! git pull; then
-                    echo -e "${BOLD_RED}Failed to update repository in $dir${RESET}"
-                fi
-            else
-                echo -e "${BOLD_RED}$dir is not a Git repository${RESET}"
-            fi
-        ) &
+        update_repo "$dir" &
     fi
 done
 
 # Wait for all background processes to finish
 wait
+
+# Display collected error outputs
+if [ -s "$ERRORS_FILE" ]; then
+    echo -e "\n${BOLD_RED}Errors encountered during updates:${RESET}"
+    cat "$ERRORS_FILE"
+fi
+
+# Clean up temporary file
+rm -f "$ERRORS_FILE"
